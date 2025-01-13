@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %} {% block title %}
+<title>{{ title }}</title>
+{% endblock title%} {% block content %}
+<h1>Posts</h1>
+{% for post in posts %}
+<div>
+  <h1>{{ post.title }} * {{ post.gender }}</h1>
+  <p>{{ post.content }}</p>
+  {% if post.isAdmin %}
+  <p>Admin</p>
+  {% else %}
+  <p>Not Admin</p>
+  {% endif %}
+</div>
+{% endfor %} {% endblock content %}

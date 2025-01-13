@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %} {% load static %} {% block title %}
+<title>{{ title }}</title>
+{% endblock title%} {% block content %}
+<h1>Posts</h1>
+<img src="{% static 'blog/images/1.jpg' %}" alt="image" />
+{% for post in posts %}
+<div>
+  <h1>{{ post.title }} * {{ post.created_at|date:"M d, Y"}}</h1>
+  <p>{{ post.title }}</p>
+  <p>by: {{post.user.username}}</p>
+</div>
+{% endfor %} {% endblock content %}

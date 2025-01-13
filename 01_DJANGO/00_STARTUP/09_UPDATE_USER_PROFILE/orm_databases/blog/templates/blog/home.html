@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %} {% load static %} {% block title %}
+<title>{{ title }}</title>
+{% endblock title%} {% block content %} {% for post in posts %}
+<article class="media content-section">
+  <img
+    class="rounded-circle article-img"
+    src="{{ post.user.profile.image.url }}"
+  />
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.user.username }}</a>
+      <small class="text-muted">{{ post.created_at|date:"F d, Y" }}</small>
+    </div>
+    <h5><a class="article-title" href="#">{{ post.title }}</a></h5>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
+{% endfor %} {% endblock content %}
